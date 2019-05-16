@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="contentDescription">
+    <!--including the toolbar-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/custom_toolbar" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/customToolBar"
+            android:layout_margin="24dp">
+
+            <TextView
+                android:id="@+id/tv_fixLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:text="@string/please_enter_your_mobile_number_to_proceed"
+                android:textColor="@color/color_black"
+                android:textSize="22sp" />
+
+            <RelativeLayout
+                android:id="@+id/rl_open_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/tv_fixLine">
+
+                <ImageView
+                    android:id="@+id/iv_flag"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/india" />
+
+                <EditText
+                    android:id="@+id/tv_country_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_toEndOf="@+id/iv_flag"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:enabled="false"
+                    android:text="@string/_000"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="4dp"
+
+                    android:layout_toEndOf="@+id/tv_country_code"
+                    android:src="@drawable/ic_keyboard_arrow_down" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_dial_number"
+                android:layout_width="200dp"
+                android:layout_height="38dp"
+                android:layout_below="@+id/tv_fixLine"
+                android:layout_toEndOf="@+id/rl_open_dialog">
+
+                <EditText
+                    android:id="@+id/et_number"
+                    android:layout_width="200dp"
+                    android:layout_height="38dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
+                    android:autofillHints="@string/your_number"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/your_number"
+                    android:inputType="number"
+                    android:longClickable="false"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/rl_dial_number"
+                android:background="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/btn_next_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_black"
+                android:text="@string/next"
+                android:textColor="@color/color_white" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+    <include layout="@layout/recycler_bottomsheet" />
+</android.support.design.widget.CoordinatorLayout>
